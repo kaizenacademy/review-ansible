@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+  - name: Copy file
+    ansible.builtin.copy:
+      src: ./kaizen.yml
+      dest: /tmp
+      remote_src: yes
+
+  - name: Create hello
+    ansible.builtin.shell: cp hello kaizen

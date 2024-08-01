@@ -1,0 +1,10 @@
+- hosts: all
+  become: yes
+  tasks:
+  - name: Install package
+    ansible.builtin.apt:
+      name: nmap
+      state: present
+    register: kaizen
+
+  - debug: msg={{ kaizen }}

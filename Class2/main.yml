@@ -1,0 +1,15 @@
+- hosts: all
+  become: yes
+  tasks:
+  - name: Install Apache
+    ansible.builtin.apt:
+      name: tree
+      state: present
+      update_cache: yes
+    notify: Restart apache
+
+  handlers:
+  - name: Restart apache
+    ansible.builtin.service:
+      name: apache2
+      state: restarted
